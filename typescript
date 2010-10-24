@@ -1,0 +1,207 @@
+Script started on Sun 24 Oct 2010 09:53:21 PM CST
+]0;home@myhost:~/develop/git/trade[home@myhost trade]$ rails 
+Could not find gem 'mysql2 (>= 0, runtime)' in any of the gem sources.
+Try running `bundle install`.
+]0;home@myhost:~/develop/git/trade[home@myhost trade]$ rails --help
+Could not find gem 'mysql2 (>= 0, runtime)' in any of the gem sources.
+Try running `bundle install`.
+]0;home@myhost:~/develop/git/trade[home@myhost trade]$ sudo gem install mysql2
+Password: 
+Building native extensions.  This could take a while...
+Successfully installed mysql2-0.2.6
+1 gem installed
+Installing ri documentation for mysql2-0.2.6...
+Enclosing class/module 'mMysql2' for class Result not known
+Enclosing class/module 'mMysql2' for class Client not known
+Installing RDoc documentation for mysql2-0.2.6...
+Enclosing class/module 'mMysql2' for class Result not known
+Enclosing class/module 'mMysql2' for class Client not known
+]0;home@myhost:~/develop/git/trade[home@myhost trade]$ sudo gem install mysql2[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[11Prails --help
+Usage: rails COMMAND [ARGS]
+
+The most common rails commands are:
+ generate    Generate new code (short-cut alias: "g")
+ console     Start the Rails console (short-cut alias: "c")
+ server      Start the Rails server (short-cut alias: "s")
+ dbconsole   Start a console for the database specified in config/database.yml
+             (short-cut alias: "db")
+ new         Create a new Rails application. "rails new my_app" creates a
+             new application called MyApp in "./my_app"
+
+In addition to those, there are:
+ application  Generate the Rails application code
+ destroy      Undo code generated with "generate"
+ benchmarker  See how fast a piece of code runs
+ profiler     Get profile information from a piece of code
+ plugin       Install a plugin
+ runner       Run a piece of code in the application environment
+
+All commands can be run with -h for more information.
+]0;home@myhost:~/develop/git/trade[home@myhost trade]$ rails --help[K[K[K[K[K[K[K plugin --help
+Usage: plugin [OPTIONS] command
+Rails plugin manager.
+
+GENERAL OPTIONS
+  -r, --root=DIR                   Set an explicit rails app directory.
+                                   Default: /home/home/develop/git/trade
+  -s, --source=URL1,URL2           Use the specified plugin repositories instead of the defaults.
+  -v, --verbose                    Turn on verbose output.
+  -h, --help                       Show this help message.
+
+COMMANDS
+  install    Install plugin(s) from known repositories or URLs.
+  remove     Uninstall plugins.
+
+EXAMPLES
+  Install a plugin:
+    rails plugin install continuous_builder
+  Install a plugin from a subversion URL:
+    rails plugin install http://dev.rubyonrails.com/svn/rails/plugins/continuous_builder
+  Install a plugin from a git URL:
+    rails plugin install git://github.com/SomeGuy/my_awesome_plugin.git
+  Install a plugin and add a svn:externals entry to vendor/plugins
+    rails plugin install -x continuous_builder
+]0;home@myhost:~/develop/git/trade[home@myhost trade]$ git status
+# On branch master
+# Changed but not updated:
+#   (use "git add <file>..." to update what will be committed)
+#   (use "git checkout -- <file>..." to discard changes in working directory)
+#
+#	modified:   README
+#
+# Untracked files:
+#   (use "git add <file>..." to include in what will be committed)
+#
+#	.gitignore
+#	Gemfile
+#	Gemfile.lock
+#	Rakefile
+#	app/
+#	config.ru
+#	config/
+#	db/
+#	doc/
+#	lib/
+#	public/
+#	script/
+#	test/
+#	typescript
+#	vendor/
+no changes added to commit (use "git add" and/or "git commit -a")
+]0;home@myhost:~/develop/git/trade[home@myhost trade]$ git add *
+]0;home@myhost:~/develop/git/trade[home@myhost trade]$ git status
+# On branch master
+# Changes to be committed:
+#   (use "git reset HEAD <file>..." to unstage)
+#
+#	new file:   Gemfile
+#	new file:   Gemfile.lock
+#	modified:   README
+#	new file:   Rakefile
+#	new file:   app/controllers/application_controller.rb
+#	new file:   app/helpers/application_helper.rb
+#	new file:   app/views/layouts/application.html.erb
+#	new file:   config.ru
+#	new file:   config/application.rb
+#	new file:   config/boot.rb
+#	new file:   config/database.yml
+#	new file:   config/environment.rb
+#	new file:   config/environments/development.rb
+#	new file:   config/environments/production.rb
+#	new file:   config/environments/test.rb
+#	new file:   config/initializers/backtrace_silencers.rb
+#	new file:   config/initializers/inflections.rb
+#	new file:   config/initializers/mime_types.rb
+#	new file:   config/initializers/secret_token.rb
+#	new file:   config/initializers/session_store.rb
+#	new file:   config/locales/en.yml
+#	new file:   config/routes.rb
+#	new file:   db/seeds.rb
+#	new file:   doc/README_FOR_APP
+#	copied:     README -> lib/tasks/.gitkeep
+#	new file:   public/404.html
+#	new file:   public/422.html
+#	new file:   public/500.html
+#	copied:     README -> public/favicon.ico
+#	new file:   public/images/rails.png
+#	new file:   public/index.html
+#	new file:   public/javascripts/application.js
+#	new file:   public/javascripts/controls.js
+#	new file:   public/javascripts/dragdrop.js
+#	new file:   public/javascripts/effects.js
+#	new file:   public/javascripts/prototype.js
+#	new file:   public/javascripts/rails.js
+#	new file:   public/robots.txt
+#	copied:     README -> public/stylesheets/.gitkeep
+#	new file:   script/rails
+#	new file:   test/performance/browsing_test.rb
+#	new file:   test/test_helper.rb
+#	copied:     README -> typescript
+#	copied:     README -> vendor/plugins/.gitkeep
+#
+# Untracked files:
+#   (use "git add <file>..." to include in what will be committed)
+#
+#	.gitignore
+]0;home@myhost:~/develop/git/trade[home@myhost trade]$ git[Kls .git
+.git/       .gitignore  
+[home@myhost trade]$ ls .git
+.git/       .gitignore  
+[home@myhost trade]$ ls .gitignore [1P[1P[1@c[1@a[1@t
+.bundle
+db/*.sqlite3
+log/*.log
+tmp/**/*
+]0;home@myhost:~/develop/git/trade[home@myhost trade]$ git status
+# On branch master
+# Changes to be committed:
+#   (use "git reset HEAD <file>..." to unstage)
+#
+#	new file:   Gemfile
+#	new file:   Gemfile.lock
+#	modified:   README
+#	new file:   Rakefile
+#	new file:   app/controllers/application_controller.rb
+#	new file:   app/helpers/application_helper.rb
+#	new file:   app/views/layouts/application.html.erb
+#	new file:   config.ru
+#	new file:   config/application.rb
+#	new file:   config/boot.rb
+#	new file:   config/database.yml
+#	new file:   config/environment.rb
+#	new file:   config/environments/development.rb
+#	new file:   config/environments/production.rb
+#	new file:   config/environments/test.rb
+#	new file:   config/initializers/backtrace_silencers.rb
+#	new file:   config/initializers/inflections.rb
+#	new file:   config/initializers/mime_types.rb
+#	new file:   config/initializers/secret_token.rb
+#	new file:   config/initializers/session_store.rb
+#	new file:   config/locales/en.yml
+#	new file:   config/routes.rb
+#	new file:   db/seeds.rb
+#	new file:   doc/README_FOR_APP
+#	copied:     README -> lib/tasks/.gitkeep
+#	new file:   public/404.html
+#	new file:   public/422.html
+#	new file:   public/500.html
+#	copied:     README -> public/favicon.ico
+#	new file:   public/images/rails.png
+#	new file:   public/index.html
+#	new file:   public/javascripts/application.js
+#	new file:   public/javascripts/controls.js
+#	new file:   public/javascripts/dragdrop.js
+#	new file:   public/javascripts/effects.js
+#	new file:   public/javascripts/prototype.js
+#	new file:   public/javascripts/rails.js
+#	new file:   public/robots.txt
+#	copied:     README -> public/stylesheets/.gitkeep
+#	new file:   script/rails
+#	new file:   test/performance/browsing_test.rb
+#	new file:   test/test_helper.rb
+#	copied:     README -> typescript
+#	copied:     README -> vendor/plugins/.gitkeep
+#
+# Changed but not updated:
+#   (use "git add <file>..." to update what will be committed)
+#   (use "git checkout -- <file>..." to discard changes in working
