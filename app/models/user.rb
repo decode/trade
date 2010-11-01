@@ -1,7 +1,8 @@
 class User < ActiveRecord::Base
-  validates :name,  :presence => true
-  validates :email, :presence => true, :uniqueness => true, :email_format => true
+  acts_as_authentic
+  acts_as_authorization_subject
 
-  acts_as_authentic do |c|
-  end
+  validates :name,  :presence => true
+  validates :email, :presence => true, :uniqueness => true#, :email_format => true
+
 end

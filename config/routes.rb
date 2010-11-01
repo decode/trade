@@ -1,4 +1,6 @@
 Trade::Application.routes.draw do
+  resources :roles
+
   # The priority is based upon order of creation:
   # first created -> highest priority.
 
@@ -60,6 +62,9 @@ Trade::Application.routes.draw do
 
   resource :user_session
 
-  root :to => 'user_session#new' # login page
+  get    'login(.:format)'  => 'user_sessions#new',     :as => :login
+  post   'login(.:format)'  => 'user_sessions#create',  :as => :login
+  delete 'logout(.:format)' => 'user_sessions#destroy', :as => :logout
+  root :to => 'user_sessions#new' # login page
 
 end
