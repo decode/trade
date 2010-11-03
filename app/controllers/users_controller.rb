@@ -1,6 +1,12 @@
 class UsersController < ApplicationController
   #before_filter :require_no_user, :only => [:new, :create]
   before_filter :require_user, :only => [:show, :edit, :update]
+
+  access_control do
+    allow :admin, :manager
+    allow :user, :except => [:index, :destroy]
+    deny nil, :except => [:new, :create]
+  end
   
   # GET /users
   # GET /users.xml

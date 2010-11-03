@@ -1,5 +1,20 @@
 Trade::Application.routes.draw do
+  #get "site/index"
+
   resources :roles
+
+  resources :users
+
+  #resource :user_session
+
+  #get    'login(.:format)'  => 'user_sessions#new',     :as => :login
+  #post   'login(.:format)'  => 'user_sessions#create',  :as => :login
+  #delete 'logout(.:format)' => 'user_sessions#destroy', :as => :logout
+  #root :to => 'user_sessions#new' # login page
+  #
+  match 'login' => 'user_sessions#new'
+  match 'logout' => 'user_sessions#destroy'
+  root :to => 'site#index'
 
   # The priority is based upon order of creation:
   # first created -> highest priority.
@@ -58,13 +73,5 @@ Trade::Application.routes.draw do
   # Note: This route will make all actions in every controller accessible via GET requests.
   # match ':controller(/:action(/:id(.:format)))'
 
-  resources :users
-
-  resource :user_session
-
-  get    'login(.:format)'  => 'user_sessions#new',     :as => :login
-  post   'login(.:format)'  => 'user_sessions#create',  :as => :login
-  delete 'logout(.:format)' => 'user_sessions#destroy', :as => :logout
-  root :to => 'user_sessions#new' # login page
 
 end
