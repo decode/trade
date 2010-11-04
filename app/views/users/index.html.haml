@@ -1,8 +1,15 @@
 %h1 Listing users
 
+= link_to 'New user', new_user_path
+= link_to 'Approve', ''
+= link_to 'Delete', ''
+
 %table
   %tr
     %th Name
+    %th Mail
+    %th Role
+    %th Manage
     %th
     %th
     %th
@@ -10,10 +17,20 @@
   - @users.each do |user|
     %tr
       %td= user.name
-      %td= link_to 'Show', user
-      %td= link_to 'Edit', edit_user_path(user)
-      %td= link_to 'Destroy', user, :confirm => 'Are you sure?', :method => :delete
+      %td= user.email
+      %td
+        - if admin?
+          = select "Role", "role_id", Role.find(:all).collect {|r| [r.name, r.id] }, :selected => user.role_objects[0].id
+        - if manager?
+          = select "Role", "role_id", Role.find(:all).collect {|r| [r.name, r.id] }, :selected => user.role_objects[0].id
+      %td
+        = link_to 'Show', user
+        = link_to 'Edit', edit_user_path(user)
+        = link_to 'Destroy', user, :confirm => 'Are you sure?', :method => :delete
+      %td
+        = link_to 'Approve', 'users/show' if user.has_role? 'guest'
+      %td
+        = link_to 'Save'
 
 %br
 
-= link_to 'New user', new_user_path

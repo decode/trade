@@ -9,6 +9,10 @@ class UsersController < ApplicationController
       allow all
     end
   end
+
+  access_control :secret_access?, :filter => false do
+    allow :admin, :manager
+  end
   
   # GET /users
   # GET /users.xml
@@ -52,15 +56,27 @@ class UsersController < ApplicationController
   end
   
   def show
-    @user = @current_user
+    if secret_access?
+      @user = User.find(params[:id])
+    else
+      @user = @current_user
+    end
   end
 
   def edit
-    @user = @current_user
+    if secret_access?
+      @user = User.find(params[:id])
+    else
+      @user = @current_user
+    end
   end
   
   def update
-    @user = @current_user # makes our views "cleaner" and more consistent
+    if secret_access?
+      @user = User.find(params[:id])
+    else
+      @user = @current_user # makes our views "cleaner" and more consistent
+    end
 
     respond_to do |format|
       if @user.update_attributes(params[:user])
