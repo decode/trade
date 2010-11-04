@@ -1,11 +1,13 @@
 class UsersController < ApplicationController
   #before_filter :require_no_user, :only => [:new, :create]
-  before_filter :require_user, :only => [:show, :edit, :update]
+  #before_filter :require_user, :only => [:show, :edit, :update]
 
   access_control do
     allow :admin, :manager
-    allow :user, :except => [:index, :destroy]
-    deny nil, :except => [:new, :create]
+    allow :user, :guest, :except => [:index, :destroy]
+    actions :new, :create do
+      allow all
+    end
   end
   
   # GET /users
@@ -30,6 +32,7 @@ class UsersController < ApplicationController
   
   def create
     @user = User.new(params[:user])
+    @user.has_role! 'guest'
     
     #if @user.save
     #  flash[:notice] = "Account registered!"

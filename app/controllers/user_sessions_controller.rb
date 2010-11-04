@@ -13,6 +13,7 @@ class UserSessionsController < ApplicationController
       #redirect_to users_path, :format => params[:format]
       redirect_to @user_session.user, :format => params[:format]
     else
+      flash[:notice] = "Wrong username or password"
       render :action => :new
     end
   end
