@@ -3,9 +3,11 @@
 = link_to 'New user', new_user_path
 = link_to 'Approve', ''
 = link_to 'Delete', ''
+= link_to 'Save', ''
 
 %table
   %tr
+    %th
     %th Name
     %th Mail
     %th Role
@@ -16,21 +18,21 @@
 
   - @users.each do |user|
     %tr
+      %td
+        = check_box_tag "users[]", user
       %td= user.name
       %td= user.email
       %td
         - if admin?
           = select "Role", "role_id", Role.find(:all).collect {|r| [r.name, r.id] }, :selected => user.role_objects[0].id
         - if manager?
-          = select "Role", "role_id", Role.find(:all).collect {|r| [r.name, r.id] }, :selected => user.role_objects[0].id
+          = select "Role", "role_id", Role.find(:all).where('name != ?', 'administrator').collect {|r| [r.name, r.id] }, :selected => user.role_objects[0].id
       %td
         = link_to 'Show', user
         = link_to 'Edit', edit_user_path(user)
         = link_to 'Destroy', user, :confirm => 'Are you sure?', :method => :delete
       %td
-        = link_to 'Approve', 'users/show' if user.has_role? 'guest'
-      %td
-        = link_to 'Save'
+        = 'Not Approved' if user.has_role? 'guest'
 
 %br
 
