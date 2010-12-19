@@ -5,6 +5,7 @@
 = link_to 'Delete', ''
 = link_to 'Save', ''
 
+
 %table
   %tr
     %th
@@ -24,7 +25,7 @@
       %td= user.email
       %td
         - if admin?
-          = select "Role", "role_id", Role.find(:all).collect {|r| [r.name, r.id] }, :selected => user.role_objects[0].id
+          = select "Role", "role_id", Role.find(:all).collect{|r| [r.name, r.id] }, :selected => user.role_objects[0].id, :onchange => "alert('hello')"
         - if manager?
           = select "Role", "role_id", Role.find(:all).where('name != ?', 'administrator').collect {|r| [r.name, r.id] }, :selected => user.role_objects[0].id
       %td

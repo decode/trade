@@ -41,12 +41,16 @@ GEM
     builder (2.1.2)
     erubis (2.6.6)
       abstract (>= 1.0.0)
-    haml (3.0.22)
-    i18n (0.4.1)
-    mail (2.2.7)
+    haml (3.0.25)
+    i18n (0.4.2)
+    jquery-rails (0.2.6)
+      rails (~> 3.0)
+      thor (~> 0.14.4)
+    mail (2.2.12)
       activesupport (>= 2.3.6)
-      mime-types
-      treetop (>= 1.4.5)
+      i18n (>= 0.4.0)
+      mime-types (~> 1.16)
+      treetop (~> 1.4.8)
     mime-types (1.16)
     mysql2 (0.2.6)
     polyglot (0.3.1)
@@ -69,8 +73,8 @@ GEM
       rake (>= 0.8.4)
       thor (~> 0.14.0)
     rake (0.8.7)
-    thor (0.14.3)
-    treetop (1.4.8)
+    thor (0.14.6)
+    treetop (1.4.9)
       polyglot (>= 0.3.1)
     tzinfo (0.3.23)
 
@@ -80,5 +84,6 @@ PLATFORMS
 DEPENDENCIES
   authlogic!
   haml
+  jquery-rails
   mysql2
   rails (= 3.0.1)

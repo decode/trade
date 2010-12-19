@@ -11,6 +11,8 @@ gem 'mysql2'
 
 gem 'authlogic', :git => 'git://github.com/odorcicd/authlogic.git', :branch => 'rails3'
 
+gem "jquery-rails"
+
 # Use unicorn as the web server
 # gem 'unicorn'
 
